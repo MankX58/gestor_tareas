@@ -1,1 +1,6 @@
-# gestor_tareas
+**Gestor Tareas**
+
+***Integrantes***
+-Manuel Gutiérrez
+-Daniel Morales
+-Cristopher ...

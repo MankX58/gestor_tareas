@@ -78,24 +78,27 @@ class Gestor:
         return "Tarea agregada"
     
     def ver_tareas(self):
+        """Muestra solo las tareas del usuario en sesión."""
         if self.sesion_actual is None:
             return "Inicia sesión para ver tareas"
+        
         with sqlite3.connect(self.db_nombre) as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT * FROM tareas WHERE usuario_id = ?", (self.sesion_actual[0],))
             tareas = cursor.fetchall()
-            if not tareas:
-                print("\nNo tienes tareas registradas.")
-                return
-            for i, tarea in enumerate(tareas, start=1):
-                print(f"""
+
+        if not tareas:
+            return "\nNo tienes tareas registradas."
+
+        for i, tarea in enumerate(tareas, start=1):
+            print(f"""
 TAREA {i}
 -------------------
 Nombre: {tarea[1]}
 Descripción: {tarea[2]}
 Categoría: {tarea[3]}
 Fecha de Creación: {tarea[4]}
-Fecha Limite: {tarea[5]}
+Fecha Límite: {tarea[5]}
 Estado: {tarea[6]}
 -------------------
 """)

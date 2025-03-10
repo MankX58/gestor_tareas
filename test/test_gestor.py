@@ -7,6 +7,8 @@ from src.gestor.tarea import Tarea
 class TestGestor(unittest.TestCase):
     def setUp(self):
         self.gestor = Gestor()
+        self.gestor.registrar_usuario("user1", "password1")
+        self.gestor.registrar_usuario("user2", "password2")
         
         with sqlite3.connect(self.gestor.db_nombre) as conn:
             cursor = conn.cursor()
@@ -75,5 +77,6 @@ class TestGestor(unittest.TestCase):
             tarea = cursor.fetchone() 
 
         self.assertIsNone(tarea) 
+        
 if __name__ == "__main__":
     unittest.main()

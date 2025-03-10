@@ -1,6 +1,7 @@
 **Gestor Tareas**
 
-***Integrantes***
+**_Integrantes_**
+
 - Manuel Gutiérrez
 - Daniel Morales
-- Cristopher ...
+- Cristopher Sanchez

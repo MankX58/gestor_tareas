@@ -78,7 +78,6 @@ class Gestor:
         return "Tarea agregada"
     
     def ver_tareas(self):
-        """Muestra solo las tareas del usuario en sesión."""
         if self.sesion_actual is None:
             return "Inicia sesión para ver tareas"
         

@@ -30,7 +30,6 @@ class TestGestor(unittest.TestCase):
             cursor.execute("VACUUM")  
 
     def test_registrar_usuario(self):
-        """Prueba el registro de un usuario nuevo"""
         resultado = self.gestor.registrar_usuario("testuser", "password123")
         self.assertEqual(resultado, "Usuario registrado con éxito") 
     

@@ -4,21 +4,27 @@ gestor = Gestor()
 
 def menu():
     while True:
-        print("1. Registrar usuario")
-        print("2. Iniciar sesión")
-        print("3. Cerrar sesión")
-        print("4. Agregar tarea")
-        print("5. Ver tareas")
-        print("6. Eliminar tarea")
-        print("7, Editar tarea")
-        print("8. Salir")
-        opcion = input("Opción: ")
+        if gestor.sesion_actual is not None:
+            print("3. Cerrar sesión")
+            print("4. Agregar tarea")
+            print("5. Ver tareas")
+            print("6. Eliminar tarea")
+            print("7, Editar tarea")
+            print("8. Salir")
+            opcion = input("Opción: ")
+        else:
+            print("1. Registrar usuario")
+            print("2. Iniciar sesión")
+            print("8. Salir")
+            opcion = input("Opción: ")
 
         if opcion == "1":
             nombre = input("Nombre: ")
             contraseña = input("Contraseña: ")
             print(gestor.registrar_usuario(nombre, contraseña))
-            print(gestor.iniciar_sesion(nombre, contraseña))
+            if gestor.registrar_usuario(nombre, contraseña) == "Usuario registrado con éxito":
+                print(gestor.iniciar_sesion(nombre, contraseña))
+            
         elif opcion == "2":
             nombre = input("Nombre: ")
             contraseña = input("Contraseña: ")
